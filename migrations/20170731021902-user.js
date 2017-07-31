@@ -34,7 +34,7 @@ module.exports = {
           type: Sequelize.INTEGER
         },
         size: {
-          type: Sequelize.INTEGER
+          type: Sequelize.STRING
         },
         eyes: {
           type: Sequelize.STRING

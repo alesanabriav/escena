@@ -39,7 +39,10 @@ const User = new GraphQLObjectType({
         type: GraphQLInt
       },
       size: {
-        type: GraphQLInt
+        type: GraphQLString
+      },
+      eyes: {
+        type: GraphQLString
       },
       gender: {
         type: GraphQLString

@@ -123,17 +123,6 @@ export default () => (
       </div>
     </section>
 
-    <style global jsx>{`
-      body {
-        overflow: none;
-        Font-Family: 'Roboto Slab', Serif;
-        Font-Size: 16px;
-      }
-      h1,h2,h3,h4,h5, h6 {
-        Font-Family: 'Ruda', Sans-Serif;
-      }
-    `}</style>
-
     <style jsx>{`
       header {
         position: fixed;

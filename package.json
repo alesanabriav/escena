@@ -11,10 +11,16 @@
   "scripts": {
     "dev": "node --harmony server.js",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js"
+    "start": "NODE_ENV=production node server.js",
+    "lint": "eslint components/ --fix"
   },
   "dependencies": {
+    "apollo-fetch": "^0.6.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
     "bcrypt": "^1.0.2",
+    "body-parser": "^1.17.2",
     "express": "^4.15.3",
     "express-graphql": "^0.6.7",
     "graphql": "^0.10.5",
@@ -23,9 +29,24 @@
     "next": "^2.4.9",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-select": "^1.0.0-rc.5",
     "sequelize": "^4.4.2"
   },
   "devDependencies": {
-    "casual": "^1.5.14"
+    "babel-eslint": "^7.2.3",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "casual": "^1.5.14",
+    "eslint": "^4.3.0",
+    "eslint-plugin-react": "^7.1.0"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ],
+    "plugins": [
+      "transform-class-properties",
+      "transform-object-rest-spread"
+    ]
   }
 }

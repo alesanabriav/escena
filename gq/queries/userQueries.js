@@ -30,12 +30,13 @@ const usersFilter = new GraphQLInputObjectType({
 const users = {
   type: new GraphQLList(User),
   args: {
-    where: {type: usersFilter},
+    where: {type: usersFilter },
     limit: { type: GraphQLInt },
     order: { type: GraphQLJSON }
   },
   resolve(root, args, ctx) {
     // let where = Object.assign(args.where, {company_id: ctx.user.company_id});
+    console.log(args);
     return models.User.findAll(args);
   }
 };
