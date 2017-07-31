@@ -1,0 +1,29 @@
+{
+  "name": "escena",
+  "version": "0.0.1",
+  "main": "server.js",
+  "repository": {
+    "url": "https://github.com/developersoul/escena.git",
+    "type": "git"
+  },
+  "author": "Alejandro Sanabria <alesanabriav@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "node --harmony server.js",
+    "build": "next build",
+    "start": "NODE_ENV=production node server.js"
+  },
+  "dependencies": {
+    "bcrypt": "^1.0.2",
+    "express": "^4.15.3",
+    "express-graphql": "^0.6.7",
+    "graphql": "^0.10.5",
+    "graphql-type-json": "^0.1.4",
+    "mysql": "^2.14.0",
+    "mysql2": "^1.3.6",
+    "next": "^2.4.9",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "sequelize": "^4.4.2"
+  }
+}
