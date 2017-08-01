@@ -60,6 +60,9 @@ module.exports = {
         availability_weekends: {
           type: Sequelize.STRING
         },
+        rushing_hour: {
+          type: Sequelize.BOOLEAN
+        },
         experience: {
           type: Sequelize.TEXT
         },

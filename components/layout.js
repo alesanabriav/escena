@@ -10,7 +10,7 @@ export default (props) => (
        <link href="/react-select/dist/react-select.css" rel="stylesheet" />
        <link href="/react-input-range/lib/bundle/react-input-range.css" rel="stylesheet" />
     </Head>
-    <div className="container">
+    <div className="container-fluid">
       {props.children}
     </div>
     <style global jsx>{`

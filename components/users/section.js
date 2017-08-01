@@ -42,8 +42,22 @@ class UsersSection extends Component {
   filterUsers = (filters) => {
     console.log(filters);
     const query = `
-      query getUsers($size: JSON, $availabilityWeek: JSON, $age: JSON, $weight: JSON) {
-        users(where: {size: $size, availability_week: $availabilityWeek, age: $age, weight: $weight}){
+      query getUsers(
+        $size: JSON,
+        $availabilityWeek: JSON,
+        $availabilityWeekends: JSON,
+        $age: JSON,
+        $weight: JSON,
+        $eyes: JSON
+      ) {
+        users(where: {
+          size: $size,
+          availability_week: $availabilityWeek,
+          availability_weekends: $availabilityWeekends,
+          age: $age,
+          weight: $weight,
+          eyes: $eyes
+        }){
           id
           name
           lastname
@@ -69,6 +83,14 @@ class UsersSection extends Component {
       ? { ...variables, availabilityWeek: {in: filters.availability_week} }
       : variables;
 
+    variables = filters.availability_weekends.length > 0
+        ? { ...variables, availabilityWeekends: {in: filters.availability_weekends} }
+        : variables;
+
+    variables = filters.eyes.length > 0
+      ? { ...variables, eyes: {in: filters.eyes} }
+      : variables;
+
     variables = {...variables, age: {between: [filters.age.min, filters.age.max]}}
 
     variables = {...variables, weight: {between: [filters.weight.min, filters.weight.max]}}
@@ -83,14 +105,20 @@ class UsersSection extends Component {
   render() {
     const { users } = this.state;
     return (
-      <div>
-        <Filters onChange={this.handleFilters} />
-        <div className="row">
-          {users.map(user => {
-            console.log(...user);
-            return <User key={user.id} {...user} />
-          })}
+      <div className="row">
+
+        <div className="col-lg-3">
+          <Filters onChange={this.handleFilters} />
         </div>
+        <div className="col-lg-9">
+          <div className="row">
+            {users.map(user => {
+              console.log(...user);
+              return <User key={user.id} {...user} />
+            })}
+          </div>
+        </div>
+
       </div>
     )
   }

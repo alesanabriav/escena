@@ -6,13 +6,15 @@ class UsersFilters extends Component {
   state = {
     size: [],
     availability_week: [],
+    availability_weekends: [],
+    eyes: [],
     age: {
       min: 18,
-      max: 50
+      max: 80
     },
     weight: {
       min: 20,
-      max: 80
+      max: 100
     }
   }
 
@@ -59,28 +61,72 @@ class UsersFilters extends Component {
       { value: 'noche', label: 'Noche'}
     ]
 
-    const {size, availability_week, age, weight} = this.state
+    const optionsEyes = [
+      { value: 'claros', label: 'Claros'},
+      { value: 'oscuros', label: 'Oscuros'}
+    ]
+
+    const {
+      size,
+      availability_week,
+      availability_weekends,
+      age,
+      weight,
+      eyes
+    } = this.state
 
     return (
       <div className="row users-filters">
-        <div className="col-lg-3">
+        <div className="col-lg-12">
+          <div className="form-group">
+
+
           <Select
             multi={true}
             value={size}
             options={options}
             onChange={this.handleChange.bind(null, 'size')}
+            placeholder="Seleccionar talla"
           />
+          </div>
         </div>
-        <div className="col-lg-3">
+        <div className="col-lg-12">
+          <div className="form-group">
           <Select
             multi={true}
             name="form-field-name"
             value={availability_week}
             options={optionsAvailability}
             onChange={this.handleChange.bind(null, 'availability_week')}
+            placeholder="Seleccionar Disponibilidad semana"
           />
+          </div>
         </div>
-        <div className="col-lg-3">
+        <div className="col-lg-12">
+          <div className="form-group">
+          <Select
+            multi={true}
+            name="form-field-name"
+            value={availability_weekends}
+            options={optionsAvailability}
+            onChange={this.handleChange.bind(null, 'availability_weekends')}
+            placeholder="Seleccionar Disponibilidad fines de semana"
+          />
+          </div>
+        </div>
+        <div className="col-lg-12">
+          <div className="form-group">
+          <Select
+            multi={true}
+            name="form-field-name"
+            value={eyes}
+            options={optionsEyes}
+            onChange={this.handleChange.bind(null, 'eyes')}
+            placeholder="Seleccionar Tonalidad ojos"
+          />
+          </div>
+        </div>
+        <div className="col-lg-12">
           <div className="range-container">
             <InputRange
               formatLabel={value => `${value} años`}
@@ -92,7 +138,7 @@ class UsersFilters extends Component {
             />
           </div>
         </div>
-        <div className="col-lg-3">
+        <div className="col-lg-12">
           <div className="range-container">
             <InputRange
               step={5}
@@ -109,9 +155,9 @@ class UsersFilters extends Component {
           .users-filters {
             padding: 20px 0;
           }
-          
+
           .range-container {
-            padding: 0 20px;
+            padding: 40px 20px;
           }
         `}</style>
       </div>

@@ -10,7 +10,8 @@ module.exports = {
     let users = [];
     let sizes = ['xs', 's', 'm', 'l', 'xl'];
     let availability = ['mañana', 'tarde', 'noche', 'fulltime'];
-    let eyes = ['claros', 'cafes'];
+    let eyes = ['claros', 'oscuros'];
+    let rushing_hour = [0, 1];
 
     for (var i = 0; i < 20; i++) {
       users = users.concat({
@@ -23,9 +24,10 @@ module.exports = {
         height: casual.double(1, 2),
         weight: casual.integer(30, 100),
         size: sizes[random(6)],
-        eyes: casual.safe_color_name,
+        eyes: eyes[random(2)],
         availability_week: availability[random(4)],
-        availability_weekends: availability[random(4)]
+        availability_weekends: availability[random(4)],
+        rushing_hour: rushing_hour[random(2)]
       });
     }
 

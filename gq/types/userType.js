@@ -3,14 +3,15 @@ const {
   GraphQLString,
   GraphQLInt,
   GraphQLList,
-  GraphQLNonNull
-} = require("graphql");
+  GraphQLNonNull,
+  GraphQLBoolean
+} = require('graphql');
 
-const GraphQLJSON = require("graphql-type-json");
+const GraphQLJSON = require('graphql-type-json');
 
 const User = new GraphQLObjectType({
-  name: "user",
-  description: "Represent a user",
+  name: 'user',
+  description: 'Represent a user',
   fields: () => ({
     id: { type: new GraphQLNonNull(GraphQLString) },
 
@@ -64,6 +65,9 @@ const User = new GraphQLObjectType({
       },
       availability_weekends: {
         type: GraphQLString
+      },
+      rushing_hour: {
+        type: GraphQLBoolean
       },
       experience: {
         type: GraphQLString

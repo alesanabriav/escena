@@ -5,14 +5,14 @@ const {
   GraphQLList,
   GraphQLNonNull,
   GraphQLInputObjectType
-} = require("graphql");
+} = require('graphql');
 
-const GraphQLJSON = require("graphql-type-json");
-const User = require("../types/userType");
+const GraphQLJSON = require('graphql-type-json');
+const User = require('../types/userType');
 const models = require('../../models');
 
 const usersFilter = new GraphQLInputObjectType({
-  name: "usersFilters",
+  name: 'usersFilters',
   fields: () => ({
     age: { type: GraphQLJSON },
     height: { type: GraphQLJSON },
@@ -20,6 +20,7 @@ const usersFilter = new GraphQLInputObjectType({
     size: { type: GraphQLJSON },
     gender: { type: GraphQLJSON },
     hair: { type: GraphQLJSON },
+    eyes: { type: GraphQLJSON },
     accent: { type: GraphQLJSON },
     language: { type: GraphQLJSON },
     availability_week: { type: GraphQLJSON },
