@@ -29,6 +29,7 @@
     "next": "^2.4.9",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-input-range": "^1.2.1",
     "react-select": "^1.0.0-rc.5",
     "sequelize": "^4.4.2"
   },

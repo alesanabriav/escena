@@ -10,6 +10,7 @@ module.exports = {
     let users = [];
     let sizes = ['xs', 's', 'm', 'l', 'xl'];
     let availability = ['mañana', 'tarde', 'noche', 'fulltime'];
+    let eyes = ['claros', 'cafes'];
 
     for (var i = 0; i < 20; i++) {
       users = users.concat({

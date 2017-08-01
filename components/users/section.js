@@ -7,7 +7,8 @@ const apolloFetch = createApolloFetch({ uri })
 
 class UsersSection extends Component {
   state = {
-    users: []
+    users: [],
+    loading: false
   }
 
   componentDidMount = () => {
@@ -41,8 +42,8 @@ class UsersSection extends Component {
   filterUsers = (filters) => {
     console.log(filters);
     const query = `
-      query getUsers($size: JSON, $availabilityWeek: JSON) {
-        users(where: {size: $size, availability_week: $availabilityWeek}){
+      query getUsers($size: JSON, $availabilityWeek: JSON, $age: JSON, $weight: JSON) {
+        users(where: {size: $size, availability_week: $availabilityWeek, age: $age, weight: $weight}){
           id
           name
           lastname
@@ -58,10 +59,19 @@ class UsersSection extends Component {
       }
     `
 
-    const variables = {
-      "size": {"in": filters.size},
-      "availabilityWeek": {"in": filters.availability_week}
-    }
+    let variables = {}
+
+    variables = filters.size.length > 0
+      ?  {...variables, size: {in: filters.size} }
+      : variables;
+
+    variables = filters.availability_week.length > 0
+      ? { ...variables, availabilityWeek: {in: filters.availability_week} }
+      : variables;
+
+    variables = {...variables, age: {between: [filters.age.min, filters.age.max]}}
+
+    variables = {...variables, weight: {between: [filters.weight.min, filters.weight.max]}}
 
     this.getUsers(query, variables)
   }

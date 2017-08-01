@@ -8,6 +8,7 @@ export default (props) => (
        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" />
        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" rel="stylesheet" />
        <link href="/react-select/dist/react-select.css" rel="stylesheet" />
+       <link href="/react-input-range/lib/bundle/react-input-range.css" rel="stylesheet" />
     </Head>
     <div className="container">
       {props.children}
