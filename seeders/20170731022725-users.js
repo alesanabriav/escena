@@ -8,10 +8,10 @@ function random(til) {
 module.exports = {
   up: function (queryInterface, Sequelize) {
     let users = [];
-    let sizes = ['xs', 's', 'm', 'l', 'xl'];
-    let availability = ['mañana', 'tarde', 'noche', 'fulltime'];
-    let eyes = ['claros', 'oscuros'];
-    let rushing_hour = [0, 1];
+    const sizes = ['xs', 's', 'm', 'l', 'xl'];
+    const availability = ['mañana', 'tarde', 'noche', 'fulltime'];
+    const eyes = ['claros', 'oscuros'];
+    const rushing_hour = [0, 1];
 
     for (var i = 0; i < 20; i++) {
       users = users.concat({

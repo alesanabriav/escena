@@ -15,6 +15,10 @@ class UsersFilters extends Component {
     weight: {
       min: 20,
       max: 100
+    },
+    height: {
+      min: 1.00,
+      max: 2.00
     }
   }
 
@@ -32,7 +36,14 @@ class UsersFilters extends Component {
   }
 
   handleRange = (field, val) => {
-    const state = {...this.state, [field]: val};
+    const state = {...this.state, [field]: val}
+    this.setState(state);
+  }
+
+  handleHeight = (field, val) => {
+    val['min'] = parseFloat(val.min).toFixed(2)
+    val['max'] = parseFloat(val.max).toFixed(2)
+    const state = {...this.state, [field]: val}
     this.setState(state);
   }
 
@@ -72,6 +83,7 @@ class UsersFilters extends Component {
       availability_weekends,
       age,
       weight,
+      height,
       eyes
     } = this.state
 
@@ -142,12 +154,25 @@ class UsersFilters extends Component {
           <div className="range-container">
             <InputRange
               step={5}
-              formatLabel={value => `${value} kilos`}
+              formatLabel={value => `${value} kl`}
               maxValue={100}
               minValue={20}
               value={weight}
               onChange={this.handleRange.bind(null, 'weight')}
               onChangeComplete={this.handleRangeComplete.bind(null, 'weight')}
+            />
+          </div>
+        </div>
+        <div className="col-lg-12">
+          <div className="range-container">
+            <InputRange
+              step={0.05}
+              formatLabel={value => `${value} cm`}
+              maxValue={2.00}
+              minValue={1.00}
+              value={height}
+              onChange={this.handleHeight.bind(null, 'height')}
+              onChangeComplete={this.handleRangeComplete.bind(null, 'height')}
             />
           </div>
         </div>
