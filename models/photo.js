@@ -1,7 +1,7 @@
 
 function PhotoModel(sequelize, Sequelize) {
   const Photo = sequelize.define(
-    "Photo",
+    'Photo',
     {
       user_id: {
         type: Sequelize.INTEGER

@@ -1,6 +1,6 @@
-const fs = require("fs");
-const path = require("path");
-const Sequelize = require("sequelize");
+const fs = require('fs');
+const path = require('path');
+const Sequelize = require('sequelize');
 const config = require('../config');
 
 var sequelize = new Sequelize(config.seq.database, config.seq.username, config.seq.password,{
@@ -22,7 +22,7 @@ let db = {};
 fs
   .readdirSync(__dirname)
   .filter(function(file) {
-    return (file.indexOf(".") !== 0) && (file !== "index.js");
+    return (file.indexOf('.') !== 0) && (file !== 'index.js');
   })
   .forEach(function(file) {
     let model = require(`./${file}`);
@@ -31,7 +31,7 @@ fs
   });
 
 Object.keys(db).forEach(function(modelName) {
-  if ("associate" in db[modelName]) {
+  if ('associate' in db[modelName]) {
     db[modelName].associate(db);
   }
 });

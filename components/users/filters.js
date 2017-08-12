@@ -7,6 +7,7 @@ class UsersFilters extends Component {
     size: [],
     availability_week: [],
     availability_weekends: [],
+    gender: [],
     eyes: [],
     age: {
       min: 18,
@@ -19,7 +20,8 @@ class UsersFilters extends Component {
     height: {
       min: 1.00,
       max: 2.00
-    }
+    },
+    offset: 0
   }
 
   handleChange = (field, val) => {
@@ -57,6 +59,7 @@ class UsersFilters extends Component {
   }
 
   render() {
+
     const options = [
       { value: 'xs', label: 'XS' },
       { value: 's', label: 'S' },
@@ -77,8 +80,15 @@ class UsersFilters extends Component {
       { value: 'oscuros', label: 'Oscuros'}
     ]
 
+    const optionsGender = [
+      { value: 'male', label: 'hombre'},
+      { value: 'female', label: 'Mujer'},
+      { value: 'other', label: 'Otro'}
+    ]
+
     const {
       size,
+      gender,
       availability_week,
       availability_weekends,
       age,
@@ -89,19 +99,6 @@ class UsersFilters extends Component {
 
     return (
       <div className="row users-filters">
-        <div className="col-lg-12">
-          <div className="form-group">
-
-
-          <Select
-            multi={true}
-            value={size}
-            options={options}
-            onChange={this.handleChange.bind(null, 'size')}
-            placeholder="Seleccionar talla"
-          />
-          </div>
-        </div>
         <div className="col-lg-12">
           <div className="form-group">
           <Select
@@ -123,6 +120,28 @@ class UsersFilters extends Component {
             options={optionsAvailability}
             onChange={this.handleChange.bind(null, 'availability_weekends')}
             placeholder="Seleccionar Disponibilidad fines de semana"
+          />
+          </div>
+        </div>
+        <div className="col-lg-12">
+          <div className="form-group">
+          <Select
+            multi={true}
+            value={size}
+            options={options}
+            onChange={this.handleChange.bind(null, 'size')}
+            placeholder="Seleccionar talla"
+          />
+          </div>
+        </div>
+        <div className="col-lg-12">
+          <div className="form-group">
+          <Select
+            multi={true}
+            value={gender}
+            options={optionsGender}
+            onChange={this.handleChange.bind(null, 'gender')}
+            placeholder="Seleccionar genero"
           />
           </div>
         </div>

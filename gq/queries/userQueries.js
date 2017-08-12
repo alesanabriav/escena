@@ -14,6 +14,7 @@ const models = require('../../models');
 const usersFilter = new GraphQLInputObjectType({
   name: 'usersFilters',
   fields: () => ({
+    id: { type: GraphQLJSON },
     age: { type: GraphQLJSON },
     height: { type: GraphQLJSON },
     weight: { type: GraphQLJSON },
@@ -33,11 +34,12 @@ const users = {
   args: {
     where: {type: usersFilter },
     limit: { type: GraphQLInt },
+    offset: { type: GraphQLInt },
     order: { type: GraphQLJSON }
   },
   resolve(root, args, ctx) {
-    // let where = Object.assign(args.where, {company_id: ctx.user.company_id});
-    console.log(args);
+    // let where = Object.assign(args.where, {id: ctx.user.id});
+    // console.log(typeof args.where == 'object' && typeof args.where.id == 'object')
     return models.User.findAll(args);
   }
 };

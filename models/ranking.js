@@ -1,7 +1,7 @@
 
 function RankingModel(sequelize, Sequelize) {
   const Ranking = sequelize.define(
-    "Ranking",
+    'Ranking',
     {
       ranking: {
         type: Sequelize.STRING
